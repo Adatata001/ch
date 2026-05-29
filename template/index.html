@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <h2>Injection Control</h2>
+    <input type="number" id="amount" placeholder="Enter amount">
+    <button onclick="triggerInjection()">Execute Injection</button>
+
+    <script>
+        function triggerInjection() {
+            const amount = document.getElementById('amount').value;
+            fetch('/inject-money', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({amount: amount})
+            }).then(response => alert("Signal Sent. Check Bybit logs."));
+        }
+    </script>
+</body>
+</html>
